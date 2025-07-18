@@ -1,0 +1,204 @@
+/* --- General Setup & Variables --- */
+:root {
+    --bg-color: #121212;
+    --primary-accent: #8A2BE2;
+    --secondary-accent: #6c23b0;
+    --gradient-light: #c896f0;
+    --text-color: #F0F0F0;
+    --subtle-text: #a0a0a0;
+    --card-bg: #1E1E1E;
+    --border-color: #2c2c2c;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+.container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+
+/* --- Reusable Components --- */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 3rem;
+    color: var(--primary-accent);
+}
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+}
+.btn:hover { transform: translateY(-3px); }
+
+/* --- Header & Navigation --- */
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border-color);
+}
+nav.container{display:flex;justify-content:space-between;align-items:center;height:70px;}
+.logo{font-size:1.5rem;font-weight:700;color:var(--text-color);text-decoration:none;}
+nav ul{list-style:none;display:flex;gap:1.5rem;}
+nav ul li a{text-decoration:none;color:var(--subtle-text);font-weight:400;transition:color 0.3s ease;}
+nav ul li a:hover,nav ul li a.active{color:var(--text-color);}
+.nav-contact-btn{background-color:var(--primary-accent);color:#FFFFFF !important;padding:0.5rem 1rem;border-radius:5px;}
+.nav-contact-btn:hover{background-color:var(--secondary-accent);}
+
+/* --- Section Styling --- */
+section { padding: 6rem 0; }
+
+/* --- Hero Section --- */
+#hero h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--primary-accent), var(--gradient-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+#hero .tagline { font-size: 1.5rem; font-weight: 400; color: var(--subtle-text); margin-bottom: 1.5rem; }
+#hero .btn-primary { background-color: var(--primary-accent); color: white; }
+#hero .btn-primary:hover { background-color: var(--secondary-accent); }
+#hero .btn-secondary { background: transparent; color: var(--text-color); border: 1px solid var(--text-color);}
+#hero .btn-secondary:hover { background: var(--text-color); color: var(--bg-color); }
+
+/* --- Universal Card Styling --- */
+.skill-card, .project-card, .experience-item {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+strong { color: var(--primary-accent); }
+
+/* --- About Section --- */
+.about-image { border: 3px solid var(--border-color); }
+
+/* --- Skills Section --- */
+.skill-card h3 { color: var(--primary-accent); }
+
+/* --- NEW HOVER ANIMATION FOR SKILL CARDS --- */
+.skill-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.skill-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-accent);
+}
+/* --- END OF NEW ANIMATION --- */
+
+/* --- Projects Section --- */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); border-color: var(--primary-accent);}
+
+.project-card .btn-secondary { border: 1px solid var(--primary-accent); color: var(--primary-accent); }
+.project-card .btn-secondary:hover { background-color: var(--primary-accent); color: white; }
+
+/* --- Experience Section --- */
+/* --- Experience Section --- */
+.experience-item {
+    border-left: 4px solid var(--primary-accent);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition is now correctly placed */
+}
+
+.experience-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+/* --- Contact Section --- */
+.email-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-accent);
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-out;
+}
+.social-links a { color: var(--subtle-text); font-size: 2rem; margin: 0 1rem; transition: color 0.3s ease, transform 0.3s ease; }
+.social-links a:hover { color: var(--primary-accent); transform: translateY(-3px); }
+
+/* --- ANIMATIONS (Scroll-in) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal.visible > * { transition-delay: 0.2s; }
+.skills-grid .reveal:nth-child(2) { transition-delay: 0.2s; }
+.skills-grid .reveal:nth-child(3) { transition-delay: 0.4s; }
+.skills-grid .reveal:nth-child(4) { transition-delay: 0.6s; }
+.skills-grid .reveal:nth-child(5) { transition-delay: 0.8s; } /* Delay for new card */
+.skills-grid .reveal:nth-child(6) { transition-delay: 1.0s; } /* Delay for new card */
+.projects-grid .reveal:nth-child(2) { transition-delay: 0.3s; }
+
+/* --- Other styles --- */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 1rem;}
+.hero-content{max-width:800px;}
+#hero p{font-size:1.1rem;color:var(--text-color);margin-bottom:2rem;}
+.hero-buttons{display:flex;justify-content:center;gap:1rem;}
+.about-content{display:flex;align-items:center;gap:3rem;}
+.about-text{flex:2;}
+.about-text p{margin-bottom:1rem;}
+.about-image{flex:1;max-width:300px;border-radius:10px;}
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+.project-card h3{margin-bottom:1rem;}
+.project-card p{color:var(--subtle-text);flex-grow:1;}
+.project-card .tech-used{margin-top:1rem;margin-bottom:1.5rem;color:var(--text-color);font-size:0.9rem;}
+.project-links{display:flex;gap:1rem;}
+.experience-date{color:var(--subtle-text);font-style:italic;margin-bottom:1rem;}
+.experience-item ul{list-style-position:inside;}
+.experience-item li{margin-bottom:0.5rem;}
+#contact{text-align:center;}
+#contact p{max-width:600px;margin:0 auto 1.5rem auto;font-size:1.1rem;}
+.email-link{display:inline-block;font-size:1.5rem;font-weight:600;color:var(--text-color);text-decoration:none;margin-bottom:2rem;position:relative;}
+.email-link:hover::after{transform:scaleX(1);transform-origin:bottom center;}
+footer{text-align:center;padding:2rem 0;margin-top:4rem;border-top:1px solid var(--border-color);color:var(--subtle-text);font-size:0.9rem;}
+@media (max-width:768px){#hero h1{font-size:3rem;}#hero .tagline{font-size:1.2rem;}.projects-grid{grid-template-columns:1fr;}.about-content{flex-direction:column-reverse;}nav ul{display:none;}.section-title{font-size:2rem;}}
+/* --- NEW HOVER UNDERLINE EFFECT FOR HEADINGS --- */
+.hover-underline {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+}
+
+.hover-underline::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px; /* A bit thicker for headings */
+    background-color: var(--primary-accent);
+    bottom: -5px; /* Creates a small gap below the text */
+    left: 0;
+    transform: scaleX(0); /* Starts with zero width (invisible) */
+    transform-origin: bottom center; /* Animation starts from the left */
+    transition: transform 0.3s ease-out;
+}
+
+.hover-underline:hover::after {
+    transform: scaleX(1); /* Animates to full width on hover */
+}
