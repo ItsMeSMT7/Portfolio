@@ -3,158 +3,372 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumit S. Asalkar | Full-Stack Developer</title>
-    
+    <title>Sumit S. Asalkar | Backend Developer | AI Engineer</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
+    <!-- Cursor Glow Effect -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Preloader -->
+    <div class="preloader" id="preloader">
+        <div class="loader">
+            <span class="loader-text">&lt;/&gt;</span>
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
         <nav class="container">
-            <!-- ADDED CLASS HERE -->
-            <a href="#" class="logo hover-underline">Sumit S. Asalkar</a>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact" class="nav-contact-btn">Contact</a></li>
+            <a href="#" class="logo">
+                <span class="logo-bracket">{</span>
+                <span class="logo-name">SA</span>
+                <span class="logo-bracket">}</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link nav-contact-btn">Contact</a></li>
             </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
         <section id="hero">
+            <div class="hero-particles" id="particles"></div>
             <div class="hero-content">
-                <h1 class="reveal">Sumit S. Asalkar</h1>
-                <h3 class="tagline reveal">A Full-Stack Developer Bridging Ideas and Reality with Code.</h3>
-                <p class="reveal">
-                    I am a passionate Artificial Intelligence student with a love for building dynamic, user-centric web applications. From e-commerce platforms to fraud detection systems, I thrive on solving complex problems and creating impactful digital experiences.
+                <p class="hero-greeting reveal">Hello, I'm</p>
+                <h1 class="reveal">Sumit S. <span class="highlight">Asalkar</span></h1>
+                <div class="typewriter-wrapper reveal">
+                    <span class="typewriter-label">&gt;&nbsp;</span>
+                    <span class="typewriter" id="typewriter"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-description reveal">
+                    I specialize in backend development using <span class="highlight">Flask</span>, <span class="highlight">MongoDB</span>, and <span class="highlight">PostgreSQL</span>, building secure and scalable REST APIs. I have developed production-ready systems including an E-commerce platform, Fraud Reporting Portal, Broker Pro real estate platform, and an LLM + RAG intelligent retrieval system.
                 </p>
                 <div class="hero-buttons reveal">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="#projects" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> View My Work
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+                <div class="hero-stats reveal">
+                    <div class="stat">
+                        <span class="stat-number" data-target="5">0</span><span class="highlight">+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="100">0</span><span class="highlight">+</span>
+                        <span class="stat-label">DSA Problems</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number" data-target="200">0</span><span class="highlight">+</span>
+                        <span class="stat-label">Students Led</span>
+                    </div>
+                </div>
+                <!-- MOVED HERE: Scroll indicator now sits below stats -->
+                <div class="scroll-indicator reveal">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <p>Scroll Down</p>
                 </div>
             </div>
         </section>
-        <br>
 
         <!-- About Section -->
-        <section id="about" class="container">
-            <!-- ADDED CLASS HERE -->
-            <h2 class="section-title reveal"><span class="hover-underline">About Me</span></h2>
+        <section id="about" class="container section">
+            <h2 class="section-title reveal">
+                <span class="section-number">01.</span>
+                <span class="hover-underline">About Me</span>
+                <span class="section-line"></span>
+            </h2>
             <div class="about-content">
                 <div class="about-text reveal">
-                    <p>Hello! I'm Sumit, a B.Tech student at Sharad Institute Of Technology, currently specializing in AI & Data Science. While my academic foundation is in AI, my passion lies in the craft of full-stack web development. I love the entire process of bringing an idea to life—from designing a clean frontend with <strong>Angular</strong> to engineering a robust backend with <strong>Spring Boot</strong> and <strong>Flask</strong>.</p>
-                    <p>My drive for excellence extends beyond the curriculum. I'm committed to mastering the fundamentals, having solved over <strong>100+ DSA problems on LeetCode</strong>. As the <strong>President of the AI Engineering Student Association</strong>, I've had the privilege of leading a team of 15+ peers, organizing large-scale technical events, and fostering a community of learners.</p>
-                    <p>I am actively seeking a full-time software development role where I can contribute my skills, embrace new challenges, and help build the future of the web.</p>
+                    <p>Hello! I'm Sumit, a B.Tech student specializing in <span class="highlight">AI &amp; Data Science</span>, deeply passionate about backend engineering and intelligent systems. I enjoy designing REST APIs, optimizing database schemas, and implementing scalable architectures using <span class="highlight">Flask</span>, <span class="highlight">MongoDB</span>, and <span class="highlight">PostgreSQL</span>.</p>
+                    <p>Recently, I worked as a <span class="highlight">Software Developer Intern at Solven Technologies</span> where I developed a company profile website and implemented an LLM + RAG system using embeddings and vector-based similarity search for context-aware responses.</p>
+                    <p>I have solved over <span class="highlight">100+ DSA problems on LeetCode</span>, strengthening my problem-solving and backend logic skills. I am actively seeking backend or software development roles where I can build secure, scalable, and impactful systems.</p>
                 </div>
-                <img src="image.jpg" alt="Sumit Asalkar" class="about-image reveal">
+                <div class="about-image-wrapper reveal">
+                    <div class="image-border"></div>
+                    <img src="image.jpg" alt="Sumit Asalkar" class="about-image">
+                </div>
             </div>
         </section>
-        <br>
 
         <!-- Skills Section -->
-        <section id="skills" class="container">
-            <!-- ADDED CLASS HERE -->
-            <h2 class="section-title reveal"><span class="hover-underline">My Tech Stack</span></h2>
+        <section id="skills" class="container section">
+            <h2 class="section-title reveal">
+                <span class="section-number">02.</span>
+                <span class="hover-underline">My Tech Stack</span>
+                <span class="section-line"></span>
+            </h2>
             <div class="skills-grid">
-                <div class="skill-card reveal">
+                <div class="skill-card reveal" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
                     <h3>Frontend</h3>
-                    <p>HTML5, CSS3, JavaScript (ES6+), Angular, Responsive Design</p>
+                    <div class="skill-tags">
+                        <span class="tag">HTML5</span>
+                        <span class="tag">CSS3</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">React.js</span>
+                    </div>
                 </div>
-                <div class="skill-card reveal">
+                <div class="skill-card reveal" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
                     <h3>Backend</h3>
-                    <p>Spring Boot, Flask, Python, REST API Development</p>
+                    <div class="skill-tags">
+                        <span class="tag">Flask</span>
+                        <span class="tag">REST APIs</span>
+                        <span class="tag">JWT Auth</span>
+                        <span class="tag">RBAC</span>
+                        <span class="tag">API Integration</span>
+                    </div>
                 </div>
-                <div class="skill-card reveal">
+                <div class="skill-card reveal" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-database"></i></div>
                     <h3>Databases</h3>
-                    <p>MongoDB</p>
+                    <div class="skill-tags">
+                        <span class="tag">MongoDB</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Schema Design</span>
+                        <span class="tag">Query Optimization</span>
+                    </div>
                 </div>
-                <!-- <div class="skill-card reveal">
-                    <h3>Tools & Methods</h3>
-                    <p>Git, GitHub, Postman, Leadership, Project Management</p>
+                <div class="skill-card reveal" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3>AI &amp; Intelligent Systems</h3>
+                    <div class="skill-tags">
+                        <span class="tag">LLM Integration</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">Embeddings</span>
+                        <span class="tag">Vector Search</span>
+                        <span class="tag">Doc Chunking</span>
+                    </div>
                 </div>
-                <div class="skill-card reveal">
-                    <h3>AI & Data Science</h3>
-                    <p>Python, TensorFlow, Scikit-learn, Pandas</p>
+                <div class="skill-card reveal" data-tilt>
+                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                    <h3>DevOps &amp; Tools</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Git</span>
+                        <span class="tag">GitHub Actions</span>
+                        <span class="tag">Render</span>
+                        <span class="tag">Vercel</span>
+                        <span class="tag">Postman</span>
+                    </div>
                 </div>
-                <div class="skill-card reveal">
-                    <h3>DevOps & Deployment</h3>
-                    <p>Docker, CI/CD (GitHub Actions), AWS (Basic)</p>
-                </div> -->
             </div>
         </section>
-        <br>
 
         <!-- Projects Section -->
-        <section id="projects" class="container">
-            <!-- ADDED CLASS HERE -->
-            <h2 class="section-title reveal"><span class="hover-underline">Featured Projects</span></h2>
+        <section id="projects" class="container section">
+            <h2 class="section-title reveal">
+                <span class="section-number">03.</span>
+                <span class="hover-underline">Featured Projects</span>
+                <span class="section-line"></span>
+            </h2>
             <div class="projects-grid">
+
                 <div class="project-card reveal">
-                    <h3>Asalkar Healthy Hub – E-commerce Website</h3>
-                    <p>A complete, full-stack e-commerce platform featuring product management, secure user authentication, and an intuitive admin dashboard.</p>
-                    <p class="tech-used"><strong>Tech:</strong> Angular, Spring Boot, MongoDB</p>
-                    <div class="project-links">
-                        <a href="#" target="_blank" class="btn btn-secondary">Live Demo</a>
-                        <a href="#" target="_blank" class="btn btn-secondary">Source Code</a>
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="project-external-links">
+                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ItsMeSMT7/Asalkar_Healthy_Hub_Backend" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>Asalkar Healthy Hub</h3>
+                    <p class="project-subtitle">E-commerce Platform</p>
+                    <p>Scalable e-commerce backend with product CRUD, cart management, order processing, secure Razorpay integration, and admin dashboard.</p>
+                    <div class="project-tech">
+                        <span>Flask</span>
+                        <span>MongoDB</span>
+                        <span>PostgreSQL</span>
+                        <span>REST APIs</span>
+                        <span>Razorpay</span>
                     </div>
                 </div>
+
                 <div class="project-card reveal">
-                    <h3>Fraud Reporting & Detection Portal</h3>
-                    <p>A secure web application designed to empower users to report and escalate cyber fraud incidents in real-time with evidence uploads.</p>
-                    <p class="tech-used"><strong>Tech:</strong> Flask, Python, MongoDB, HTML, CSS</p>
-                     <div class="project-links">
-                        <a href="D:\Sumit\Project\Completed\Fraude_Reporting-main\Fraude_Reporting-main\frontend\home.html" target="_blank" class="btn btn-secondary">Live Demo</a>
-                        <a href="#" target="_blank" class="btn btn-secondary">Source Code</a>
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="project-external-links">
+                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ItsMeSMT7/Fraud_Reporting" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>Fraud Reporting Portal</h3>
+                    <p class="project-subtitle">Detection &amp; Escalation System</p>
+                    <p>Secure fraud reporting system with encrypted file upload APIs, real-time case logging, and automated escalation workflows (100+ reports processed).</p>
+                    <div class="project-tech">
+                        <span>Flask</span>
+                        <span>MongoDB Atlas</span>
+                        <span>REST APIs</span>
                     </div>
                 </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="project-external-links">
+                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ItsMeSMT7/ChatBot" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>LLM + RAG System</h3>
+                    <p class="project-subtitle">Intelligent Retrieval Pipeline</p>
+                    <p>Designed and implemented a Retrieval-Augmented Generation pipeline with document chunking, embedding generation, and similarity search for context-aware responses.</p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>LLM APIs</span>
+                        <span>Embeddings</span>
+                        <span>Vector DB</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="project-external-links">
+                            <a href="https://ds-frontend-opal.vercel.app/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ItsMeSMT7/ds-backend" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>Broker Pro</h3>
+                    <p class="project-subtitle">Real Estate Management Platform</p>
+                    <p>Broker-centric property listing and client inquiry management system with optimized API responses and structured database schema.</p>
+                    <div class="project-tech">
+                        <span>Flask</span>
+                        <span>PostgreSQL</span>
+                        <span>REST APIs</span>
+                    </div>
+                </div>
+
+                <div class="project-card reveal">
+                    <div class="project-header">
+                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
+                        <div class="project-external-links">
+                            <a href="https://solven.in/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="https://github.com/ItsMeSMT7/Solven_Website" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3>Solven Company Website</h3>
+                    <p class="project-subtitle">Corporate Profile Site</p>
+                    <p>Developed responsive company website with component-based architecture and performance optimization for smooth user experience.</p>
+                    <div class="project-tech">
+                        <span>React.js</span>
+                    </div>
+                </div>
+
             </div>
         </section>
-        <br>
 
         <!-- Experience Section -->
-        <section id="experience" class="container">
-            <!-- ADDED CLASS HERE -->
-            <h2 class="section-title reveal"><span class="hover-underline">Leadership & Initiative</span></h2>
-            <div class="experience-item">
-                <h3>President, AI Engineering Student Association (AIESA)</h3>
-                <p class="experience-date">Sep 2024 - Present</p>
-                <ul>
-                    <li>Organized workshops, coding competitions, and tech fests for over <strong>200+ students</strong>.</li>
-                    <li>Managed and mentored a core team of <strong>15+ members</strong>, delegating tasks and fostering a collaborative environment.</li>
-                    <li>Spearheaded initiatives for project-based learning and peer-to-peer mentorship.</li>
-                    <li>Developed strong leadership, communication, and event management skills.</li>
-                </ul>
+        <section id="experience" class="container section">
+            <h2 class="section-title reveal">
+                <span class="section-number">04.</span>
+                <span class="hover-underline">Professional Experience</span>
+                <span class="section-line"></span>
+            </h2>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Developer Intern</h3>
+                            <span class="timeline-company"><a href="https://solven.in/" target="_blank">  @ Solven Ai Solutions</a> </span>
+                        </div>
+                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> 2025 – Present</p>
+                        <ul>
+                            <li>Developed a responsive company profile website using <span class="highlight">React.js</span> with component-based architecture.</li>
+                            <li>Implemented an <span class="highlight">LLM + RAG system</span> integrating embeddings and vector-based similarity search for context-aware responses.</li>
+                            <li>Contributed to <span class="highlight">REST API integration</span> and backend service optimization.</li>
+                            <li>Collaborated in an <span class="highlight">Agile environment</span> using Git-based workflows and CI/CD deployment processes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>AI Engineering Student Association (AIESA) </h3>
+                            <span class="timeline-company">@ President</span>
+                        </div>
+                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> 2024 – 2025</p>
+                        <ul>
+                            <li>Contributed to AI workshops, coding competitions, and mentorship programs for <span class="highlight">200+ students</span>.</li>
+                            <li>Collaborated in Agile team projects using Git-based workflows and peer code review.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
-        <br>
 
         <!-- Contact Section -->
-        <section id="contact" class="container">
-            <!-- ADDED CLASS HERE -->
-            <h2 class="section-title reveal"><span class="hover-underline">Let's Build Something Together</span></h2>
-            <p class="reveal">I'm excited to bring my passion and skills to a new team. If you have an opportunity or just want to connect, my inbox is always open!</p>
-            <a href="mailto:asalkarsumit@gmail.com" class="email-link">asalkarsumit@gmail.com</a>
-            <div class="social-links reveal">
-                <a href="https://www.linkedin.com/in/sumit-asalkar-1759a5277/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/ItsMeSMT7" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.instagram.com/_sumit_asalkar_7/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <section id="contact" class="container section">
+            <h2 class="section-title reveal">
+                <span class="section-number">05.</span>
+                <span class="hover-underline">Let's Build Something Together</span>
+                <span class="section-line"></span>
+            </h2>
+            <div class="contact-content reveal">
+                <p class="contact-text">I'm excited to bring my passion and skills to a new team. If you have an opportunity or just want to connect, my inbox is always open!</p>
+                <a href="mailto:asalkarsumit@gmail.com" class="btn btn-primary email-btn">
+                    <i class="fas fa-paper-plane"></i> asalkarsumit@gmail.com
+                </a>
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/sumit-asalkar-1759a5277/" target="_blank" aria-label="LinkedIn" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="https://github.com/ItsMeSMT7" target="_blank" aria-label="GitHub" class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/_sumit_asalkar_7/" target="_blank" aria-label="Instagram" class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://leetcode.com/" target="_blank" aria-label="LeetCode" class="social-icon">
+                        <i class="fas fa-code"></i>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
-    
+
     <footer>
-        <p>© 2024 Sumit S. Asalkar. All Rights Reserved.</p>
+        <div class="footer-content">
+            <p>Designed &amp; Built by <span class="highlight">Sumit S. Asalkar</span></p>
+            <p class="footer-sub">&copy; 2025 All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="script.js"></script>
 </body>
