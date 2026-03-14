@@ -528,7 +528,7 @@ const fOk = document.getElementById('formOk');
 
 if (cForm) {
     cForm.addEventListener('submit', e => {
-        e.preventDefault();
+        // e.preventDefault();
         const b = cForm.querySelector('button[type="submit"]');
         const o = b.innerHTML;
         b.innerHTML = '<span class="btn-glow-inner"><i class="fas fa-spinner fa-spin"></i> Sending...</span>';
