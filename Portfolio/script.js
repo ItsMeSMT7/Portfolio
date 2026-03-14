@@ -528,17 +528,34 @@ const fOk = document.getElementById('formOk');
 
 if (cForm) {
     cForm.addEventListener('submit', e => {
-        // e.preventDefault();
+        e.preventDefault();
         const b = cForm.querySelector('button[type="submit"]');
         const o = b.innerHTML;
         b.innerHTML = '<span class="btn-glow-inner"><i class="fas fa-spinner fa-spin"></i> Sending...</span>';
         b.disabled = true;
-        setTimeout(() => {
+        
+        fetch(cForm.action, {
+            method: cForm.method,
+            body: new FormData(cForm),
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                b.innerHTML = o;
+                b.disabled = false;
+                fOk.classList.add('show');
+                cForm.reset();
+                setTimeout(() => fOk.classList.remove('show'), 5000);
+            } else {
+                b.innerHTML = o;
+                b.disabled = false;
+                alert("Oops! There was a problem submitting your form");
+            }
+        }).catch(error => {
             b.innerHTML = o;
             b.disabled = false;
-            fOk.classList.add('show');
-            cForm.reset();
-            setTimeout(() => fOk.classList.remove('show'), 5000);
-        }, 1500);
+            alert("Oops! There was a problem submitting your form");
+        });
     });
 }
