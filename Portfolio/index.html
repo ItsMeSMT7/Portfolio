@@ -1,374 +1,521 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sumit S. Asalkar | Backend Developer | AI Engineer</title>
-
+    <title>Sumit Asalkar | Full Stack Developer & AI Engineer</title>
+    <meta name="description" content="Sumit Asalkar — Full Stack Developer, AI Engineer, Founder of Asalkar Digital">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Cursor Glow Effect -->
-    <div class="cursor-glow" id="cursorGlow"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- Preloader -->
     <div class="preloader" id="preloader">
-        <div class="loader">
-            <span class="loader-text">&lt;/&gt;</span>
-            <div class="loader-bar"><div class="loader-fill"></div></div>
+        <div class="pre-inner">
+            <div class="pre-avatar-wrap">
+                <div class="pre-glow"></div>
+                <img src="avatar.png" alt="Avatar" class="pre-avatar-img">
+            </div>
+            <h2 class="pre-name">Sumit Asalkar</h2>
+            <p class="pre-role">Full Stack Developer &amp; AI Engineer</p>
+            <div class="pre-bar"><div class="pre-fill"></div></div>
+            <span class="pre-counter" id="preCounter">0%</span>
         </div>
     </div>
 
-    <!-- Header -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Floating Navbar -->
     <header id="header">
-        <nav class="container">
-            <a href="#" class="logo">
-                <span class="logo-bracket">{</span>
-                <span class="logo-name">SA</span>
-                <span class="logo-bracket">}</span>
+        <nav class="nav-pill">
+            <a href="#home" class="logo">
+                <span class="logo-b">{</span><span class="logo-t">SA</span><span class="logo-b">}</span>
             </a>
-            <ul class="nav-links" id="navLinks">
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#work" class="nav-link">Work</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link nav-contact-btn">Contact</a></li>
+                <li><a href="#asalkar-digital" class="nav-link">Digital</a></li>
+                <li><a href="#contact" class="nav-link cta-link"><i class="fas fa-paper-plane"></i> Contact</a></li>
             </ul>
-            <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-actions">
+                <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+                    <i class="fas fa-moon" id="themeIcon"></i>
+                </button>
+                <button class="burger" id="burger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
         </nav>
     </header>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
 
     <main>
-        <!-- Hero Section -->
-        <section id="hero">
-            <div class="hero-particles" id="particles"></div>
-            <div class="hero-content">
-                <p class="hero-greeting reveal">Hello, I'm</p>
-                <h1 class="reveal">Sumit S. <span class="highlight">Asalkar</span></h1>
-                <div class="typewriter-wrapper reveal">
-                    <span class="typewriter-label">&gt;&nbsp;</span>
-                    <span class="typewriter" id="typewriter"></span>
-                    <span class="typewriter-cursor">|</span>
-                </div>
-                <p class="hero-description reveal">
-                    I specialize in backend development using <span class="highlight">Flask</span>, <span class="highlight">MongoDB</span>, and <span class="highlight">PostgreSQL</span>, building secure and scalable REST APIs. I have developed production-ready systems including an E-commerce platform, Fraud Reporting Portal, Broker Pro real estate platform, and an LLM + RAG intelligent retrieval system.
-                </p>
-                <div class="hero-buttons reveal">
-                    <a href="#projects" class="btn btn-primary">
-                        <i class="fas fa-rocket"></i> View My Work
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class="fas fa-envelope"></i> Get In Touch
-                    </a>
-                </div>
-                <div class="hero-stats reveal">
-                    <div class="stat">
-                        <span class="stat-number" data-target="5">0</span><span class="highlight">+</span>
-                        <span class="stat-label">Projects</span>
+        <!-- HERO -->
+        <section id="home" class="hero-section">
+            <div class="hero-bg-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
+            <div class="hero-container">
+                <div class="hero-left">
+                    <div class="hero-badge reveal-up">
+                        <span class="badge-dot"></span> Available for opportunities
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-number" data-target="100">0</span><span class="highlight">+</span>
-                        <span class="stat-label">DSA Problems</span>
+                    <p class="hero-hello reveal-up">Hello, I'm</p>
+                    <h1 class="hero-name reveal-up">Sumit <span class="name-accent">Asalkar</span></h1>
+                    <div class="hero-type-wrap reveal-up">
+                        <span class="type-arrow">&gt;&nbsp;</span>
+                        <span class="type-text" id="typeText"></span>
+                        <span class="type-cursor">|</span>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat">
-                        <span class="stat-number" data-target="200">0</span><span class="highlight">+</span>
-                        <span class="stat-label">Students Led</span>
+                    <p class="hero-desc reveal-up">I build intelligent web platforms, modern applications, and digital solutions that help businesses scale and grow online.</p>
+                    <div class="hero-btns reveal-up">
+                        <a href="#work" class="btn-glow"><span class="btn-glow-inner"><i class="fas fa-rocket"></i> View Projects</span></a>
+                        <a href="#contact" class="btn-outline-glow"><i class="fas fa-envelope"></i> Contact Me</a>
+                        <a href="#" class="btn-outline-glow" download><i class="fas fa-download"></i> Resume</a>
+                    </div>
+                    <div class="hero-socials reveal-up">
+                        <a href="https://www.linkedin.com/in/sumit-asalkar-1759a5277/" target="_blank" class="social-glow"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/ItsMeSMT7" target="_blank" class="social-glow"><i class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/_sumit_asalkar_7/" target="_blank" class="social-glow"><i class="fab fa-instagram"></i></a>
+                        <a href="https://leetcode.com/" target="_blank" class="social-glow"><i class="fas fa-code"></i></a>
                     </div>
                 </div>
-                <!-- MOVED HERE: Scroll indicator now sits below stats -->
-                <div class="scroll-indicator reveal">
-                    <div class="mouse">
-                        <div class="wheel"></div>
+                <!-- Full Avatar Image -->
+                <div class="hero-right reveal-up">
+                    <div class="avatar-wrap" id="avatarWrap">
+                        <div class="av-glow"></div>
+                        <div class="av-ring"></div>
+                        <div class="av-ring av-ring-2"></div>
+                        <img src="avatar.png" alt="Sumit Asalkar" class="av-full-img" id="avFullImg">
+                        <div class="fl-icon fl-1"><i class="fab fa-python"></i></div>
+                        <div class="fl-icon fl-2"><i class="fab fa-react"></i></div>
+                        <div class="fl-icon fl-3"><i class="fas fa-database"></i></div>
+                        <div class="fl-icon fl-4"><i class="fas fa-brain"></i></div>
+                        <div class="fl-icon fl-5"><i class="fab fa-js-square"></i></div>
+                        <div class="fl-icon fl-6"><i class="fas fa-flask-vial"></i></div>
+                        <div class="orbit-dot od-1"></div>
+                        <div class="orbit-dot od-2"></div>
                     </div>
-                    <p>Scroll Down</p>
                 </div>
+            </div>
+            <div class="hero-stats reveal-up">
+                <div class="hs-item"><span class="hs-num" data-target="5">0</span><span class="hs-plus">+</span><span class="hs-label">Projects</span></div>
+                <div class="hs-divider"></div>
+                <div class="hs-item"><span class="hs-num" data-target="100">0</span><span class="hs-plus">+</span><span class="hs-label">DSA Problems</span></div>
+                <div class="hs-divider"></div>
+                <div class="hs-item"><span class="hs-num" data-target="200">0</span><span class="hs-plus">+</span><span class="hs-label">Students Led</span></div>
+            </div>
+            <div class="scroll-cue reveal-up">
+                <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+                <span>Scroll Down</span>
             </div>
         </section>
 
-        <!-- About Section -->
-        <section id="about" class="container section">
-            <h2 class="section-title reveal">
-                <span class="section-number">01.</span>
-                <span class="hover-underline">About Me</span>
-                <span class="section-line"></span>
-            </h2>
-            <div class="about-content">
-                <div class="about-text reveal">
-                    <p>Hello! I'm Sumit, a B.Tech student specializing in <span class="highlight">AI &amp; Data Science</span>, deeply passionate about backend engineering and intelligent systems. I enjoy designing REST APIs, optimizing database schemas, and implementing scalable architectures using <span class="highlight">Flask</span>, <span class="highlight">MongoDB</span>, and <span class="highlight">PostgreSQL</span>.</p>
-                    <p>Recently, I worked as a <span class="highlight">Software Developer Intern at Solven Technologies</span> where I developed a company profile website and implemented an LLM + RAG system using embeddings and vector-based similarity search for context-aware responses.</p>
-                    <p>I have solved over <span class="highlight">100+ DSA problems on LeetCode</span>, strengthening my problem-solving and backend logic skills. I am actively seeking backend or software development roles where I can build secure, scalable, and impactful systems.</p>
-                </div>
-                <div class="about-image-wrapper reveal">
-                    <div class="image-border"></div>
-                    <img src="image.jpg" alt="Sumit Asalkar" class="about-image">
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="container section">
-            <h2 class="section-title reveal">
-                <span class="section-number">02.</span>
-                <span class="hover-underline">My Tech Stack</span>
-                <span class="section-line"></span>
-            </h2>
-            <div class="skills-grid">
-                <div class="skill-card reveal" data-tilt>
-                    <div class="skill-icon"><i class="fas fa-code"></i></div>
-                    <h3>Frontend</h3>
-                    <div class="skill-tags">
-                        <span class="tag">HTML5</span>
-                        <span class="tag">CSS3</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">React.js</span>
+        <!-- ABOUT -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">01.</span> About Me <span class="sec-line"></span></h2>
+                <div class="about-wrap">
+                    <div class="about-img reveal-up">
+                        <div class="img-frame" data-tilt>
+                            <img src="image.jpg" alt="Sumit Asalkar" loading="lazy">
+                            <div class="img-border"></div>
+                            <div class="img-glow"></div>
+                        </div>
+                        <div class="status-badge"><div class="status-dot"></div><span>Open to Work</span></div>
                     </div>
-                </div>
-                <div class="skill-card reveal" data-tilt>
-                    <div class="skill-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Flask</span>
-                        <span class="tag">REST APIs</span>
-                        <span class="tag">JWT Auth</span>
-                        <span class="tag">RBAC</span>
-                        <span class="tag">API Integration</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal" data-tilt>
-                    <div class="skill-icon"><i class="fas fa-database"></i></div>
-                    <h3>Databases</h3>
-                    <div class="skill-tags">
-                        <span class="tag">MongoDB</span>
-                        <span class="tag">PostgreSQL</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Schema Design</span>
-                        <span class="tag">Query Optimization</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal" data-tilt>
-                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
-                    <h3>AI &amp; Intelligent Systems</h3>
-                    <div class="skill-tags">
-                        <span class="tag">LLM Integration</span>
-                        <span class="tag">RAG</span>
-                        <span class="tag">Embeddings</span>
-                        <span class="tag">Vector Search</span>
-                        <span class="tag">Doc Chunking</span>
-                    </div>
-                </div>
-                <div class="skill-card reveal" data-tilt>
-                    <div class="skill-icon"><i class="fas fa-tools"></i></div>
-                    <h3>DevOps &amp; Tools</h3>
-                    <div class="skill-tags">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub Actions</span>
-                        <span class="tag">Render</span>
-                        <span class="tag">Vercel</span>
-                        <span class="tag">Postman</span>
+                    <div class="about-text reveal-up">
+                        <p>I'm <strong>Sumit Asalkar</strong>, a B.Tech student in <strong>AI &amp; Data Science</strong> passionate about backend engineering. I architect REST APIs, optimize databases, and build scalable systems with <strong>Flask</strong>, <strong>MongoDB</strong>, and <strong>PostgreSQL</strong>.</p>
+                        <p>As a <strong>Software Developer Intern at Solven Technologies</strong>, I built a company website and an <strong>LLM + RAG system</strong> using embeddings and vector search.</p>
+                        <p>I've solved <strong>100+ DSA problems on LeetCode</strong> and founded <strong>Asalkar Digital</strong> — bringing local businesses online.</p>
+                        <div class="about-tags">
+                            <span class="a-tag"><i class="fas fa-check"></i> REST API Development</span>
+                            <span class="a-tag"><i class="fas fa-check"></i> Database Architecture</span>
+                            <span class="a-tag"><i class="fas fa-check"></i> LLM &amp; RAG Systems</span>
+                            <span class="a-tag"><i class="fas fa-check"></i> Full Stack Apps</span>
+                            <span class="a-tag"><i class="fas fa-check"></i> CI/CD Pipelines</span>
+                            <span class="a-tag"><i class="fas fa-check"></i> Agile Development</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="container section">
-            <h2 class="section-title reveal">
-                <span class="section-number">03.</span>
-                <span class="hover-underline">Featured Projects</span>
-                <span class="section-line"></span>
-            </h2>
-            <div class="projects-grid">
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                        <div class="project-external-links">
-                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/ItsMeSMT7/Asalkar_Healthy_Hub_Backend" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Asalkar Healthy Hub</h3>
-                    <p class="project-subtitle">E-commerce Platform</p>
-                    <p>Scalable e-commerce backend with product CRUD, cart management, order processing, secure Razorpay integration, and admin dashboard.</p>
-                    <div class="project-tech">
-                        <span>Flask</span>
-                        <span>MongoDB</span>
-                        <span>PostgreSQL</span>
-                        <span>REST APIs</span>
-                        <span>Razorpay</span>
-                    </div>
+        <!-- SKILLS -->
+        <section id="skills" class="section section-alt">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">02.</span> Tech Stack <span class="sec-line"></span></h2>
+                <div class="skills-grid">
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-code"></i></div><h3>Frontend</h3><div class="sk-tags"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>React.js</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:85%"></div></div></div>
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-server"></i></div><h3>Backend</h3><div class="sk-tags"><span>Flask</span><span>REST APIs</span><span>JWT Auth</span><span>RBAC</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:90%"></div></div></div>
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-database"></i></div><h3>Databases</h3><div class="sk-tags"><span>MongoDB</span><span>PostgreSQL</span><span>SQL</span><span>Schema Design</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:88%"></div></div></div>
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-brain"></i></div><h3>AI &amp; ML</h3><div class="sk-tags"><span>LLM</span><span>RAG</span><span>Embeddings</span><span>Vector Search</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:80%"></div></div></div>
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-tools"></i></div><h3>DevOps</h3><div class="sk-tags"><span>Git</span><span>GitHub Actions</span><span>Render</span><span>Vercel</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:75%"></div></div></div>
+                    <div class="skill-card reveal-up" data-tilt><div class="sk-glow"></div><div class="sk-icon"><i class="fas fa-puzzle-piece"></i></div><h3>Problem Solving</h3><div class="sk-tags"><span>DSA</span><span>Algorithms</span><span>LeetCode</span><span>System Design</span></div><div class="sk-bar"><div class="sk-fill" style="--fill:82%"></div></div></div>
                 </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                        <div class="project-external-links">
-                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/ItsMeSMT7/Fraud_Reporting" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Fraud Reporting Portal</h3>
-                    <p class="project-subtitle">Detection &amp; Escalation System</p>
-                    <p>Secure fraud reporting system with encrypted file upload APIs, real-time case logging, and automated escalation workflows (100+ reports processed).</p>
-                    <div class="project-tech">
-                        <span>Flask</span>
-                        <span>MongoDB Atlas</span>
-                        <span>REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                        <div class="project-external-links">
-                            <a href="#" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/ItsMeSMT7/ChatBot" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>LLM + RAG System</h3>
-                    <p class="project-subtitle">Intelligent Retrieval Pipeline</p>
-                    <p>Designed and implemented a Retrieval-Augmented Generation pipeline with document chunking, embedding generation, and similarity search for context-aware responses.</p>
-                    <div class="project-tech">
-                        <span>Python</span>
-                        <span>LLM APIs</span>
-                        <span>Embeddings</span>
-                        <span>Vector DB</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                        <div class="project-external-links">
-                            <a href="https://ds-frontend-opal.vercel.app/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/ItsMeSMT7/ds-backend" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Broker Pro</h3>
-                    <p class="project-subtitle">Real Estate Management Platform</p>
-                    <p>Broker-centric property listing and client inquiry management system with optimized API responses and structured database schema.</p>
-                    <div class="project-tech">
-                        <span>Flask</span>
-                        <span>PostgreSQL</span>
-                        <span>REST APIs</span>
-                    </div>
-                </div>
-
-                <div class="project-card reveal">
-                    <div class="project-header">
-                        <div class="project-icon"><i class="fas fa-folder-open"></i></div>
-                        <div class="project-external-links">
-                            <a href="https://solven.in/" target="_blank" aria-label="Live Demo"><i class="fas fa-external-link-alt"></i></a>
-                            <a href="https://github.com/ItsMeSMT7/Solven_Website" target="_blank" aria-label="Source Code"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <h3>Solven Company Website</h3>
-                    <p class="project-subtitle">Corporate Profile Site</p>
-                    <p>Developed responsive company website with component-based architecture and performance optimization for smooth user experience.</p>
-                    <div class="project-tech">
-                        <span>React.js</span>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="container section">
-            <h2 class="section-title reveal">
-                <span class="section-number">04.</span>
-                <span class="hover-underline">Professional Experience</span>
-                <span class="section-line"></span>
-            </h2>
+        <!-- WORK — Horizontal Sticky Scroll -->
+        <section id="work" class="section">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">03.</span> My Work <span class="sec-line"></span></h2>
+            </div>
+            <div class="work-stack-container">
+                <!-- Card 1 -->
+                <div class="work-stack-card" style="--i:0">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-1">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Featured Project</span>
+                            <h3>Asalkar Healthy Hub</h3>
+                            <p>Full-stack e-commerce with product CRUD, cart, orders, Razorpay payments, and admin dashboard.</p>
+                            <div class="wsc-tech"><span>Flask</span><span>MongoDB</span><span>PostgreSQL</span><span>Razorpay</span></div>
+                            <div class="wsc-links">
+                                <a href="https://github.com/ItsMeSMT7/Asalkar_Healthy_Hub_Backend" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="work-stack-card" style="--i:1">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-2">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Featured Project</span>
+                            <h3>LLM + RAG System</h3>
+                            <p>RAG pipeline with document chunking, embedding generation, and vector similarity search for AI responses.</p>
+                            <div class="wsc-tech"><span>Python</span><span>LLM APIs</span><span>Embeddings</span><span>Vector DB</span></div>
+                            <div class="wsc-links">
+                                <a href="https://github.com/ItsMeSMT7/ChatBot" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="work-stack-card" style="--i:2">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-3">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Featured Project</span>
+                            <h3>Fraud Reporting Platform</h3>
+                            <p>Encrypted file uploads, real-time case logging, and automated fraud escalation workflows.</p>
+                            <div class="wsc-tech"><span>Flask</span><span>MongoDB Atlas</span><span>REST APIs</span></div>
+                            <div class="wsc-links">
+                                <a href="https://github.com/ItsMeSMT7/Fraud_Reporting" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="work-stack-card" style="--i:3">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-4">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Project</span>
+                            <h3>DS Real Estate</h3>
+                            <p>Broker-centric property listing and client inquiry management with optimized API responses.</p>
+                            <div class="wsc-tech"><span>Flask</span><span>PostgreSQL</span><span>REST APIs</span></div>
+                            <div class="wsc-links">
+                                <a href="https://github.com/ItsMeSMT7/ds-backend" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://ds-frontend-opal.vercel.app/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="work-stack-card" style="--i:4">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-5">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Project</span>
+                            <h3>Solven Company Website</h3>
+                            <p>Responsive React.js site with component architecture, SEO optimization and smooth UX.</p>
+                            <div class="wsc-tech"><span>React.js</span><span>CSS3</span><span>Vercel</span></div>
+                            <div class="wsc-links">
+                                <a href="https://github.com/ItsMeSMT7/Solven_Website" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="https://solven.in/" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="work-stack-card" style="--i:5">
+                    <div class="wsc-inner">
+                        <div class="wsc-visual">
+                            <div class="wsc-placeholder wsc-pl-6">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="wsc-overlay"></div>
+                        </div>
+                        <div class="wsc-content">
+                            <span class="wsc-label">Project</span>
+                            <h3>Courier Tracker</h3>
+                            <p>Unified shipment tracking from multiple couriers in one dashboard with real-time updates.</p>
+                            <div class="wsc-tech"><span>Flask</span><span>REST APIs</span><span>MongoDB</span></div>
+                            <div class="wsc-links">
+                                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                                <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-            <div class="timeline">
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
+        <!-- EXPERIENCE — Scroll-Animated Timeline -->
+        <section id="experience" class="section section-alt">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">04.</span> Experience <span class="sec-line"></span></h2>
+                <div class="exp-timeline" id="expTimeline">
+                    <div class="exp-line">
+                        <div class="exp-line-fill" id="expLineFill"></div>
+                    </div>
+                    <!-- Entry 1 -->
+                    <div class="exp-entry" data-exp="0">
+                        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+                        <div class="exp-date-side"><span>Jan 2025 – Present</span></div>
+                        <div class="exp-card">
                             <h3>Software Developer Intern</h3>
-                            <span class="timeline-company"><a href="https://solven.in/" target="_blank">  @ Solven Ai Solutions</a> </span>
+                            <a href="https://solven.in/" target="_blank" class="exp-company">@ Solven AI Solutions</a>
+                            <ul>
+                                <li>Built responsive company site using <strong>React.js</strong></li>
+                                <li>Implemented <strong>LLM + RAG system</strong> with vector similarity search</li>
+                                <li>Contributed to <strong>REST API</strong> integration and optimization</li>
+                                <li>Worked in <strong>Agile</strong> with Git workflows and CI/CD</li>
+                            </ul>
                         </div>
-                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> 2025 – Present</p>
-                        <ul>
-                            <li>Developed a responsive company profile website using <span class="highlight">React.js</span> with component-based architecture.</li>
-                            <li>Implemented an <span class="highlight">LLM + RAG system</span> integrating embeddings and vector-based similarity search for context-aware responses.</li>
-                            <li>Contributed to <span class="highlight">REST API integration</span> and backend service optimization.</li>
-                            <li>Collaborated in an <span class="highlight">Agile environment</span> using Git-based workflows and CI/CD deployment processes.</li>
-                        </ul>
                     </div>
-                </div>
-
-                <div class="timeline-item reveal">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>AI Engineering Student Association (AIESA) </h3>
-                            <span class="timeline-company">@ President</span>
+                    <!-- Entry 2 -->
+                    <div class="exp-entry" data-exp="1">
+                        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+                        <div class="exp-date-side"><span>2024 – 2025</span></div>
+                        <div class="exp-card">
+                            <h3>President — AIESA</h3>
+                            <span class="exp-company">@ AI Engineering Student Association</span>
+                            <ul>
+                                <li>Led AI workshops, competitions, mentorship for <strong>200+ students</strong></li>
+                                <li>Organized technical events and hackathons</li>
+                                <li>Managed Agile projects with Git and peer review</li>
+                            </ul>
                         </div>
-                        <p class="timeline-date"><i class="far fa-calendar-alt"></i> 2024 – 2025</p>
-                        <ul>
-                            <li>Contributed to AI workshops, coding competitions, and mentorship programs for <span class="highlight">200+ students</span>.</li>
-                            <li>Collaborated in Agile team projects using Git-based workflows and peer code review.</li>
-                        </ul>
+                    </div>
+                    <!-- Entry 3 -->
+                    <div class="exp-entry" data-exp="2">
+                        <div class="exp-dot"><div class="exp-dot-inner"></div></div>
+                        <div class="exp-date-side"><span>2024 – Present</span></div>
+                        <div class="exp-card">
+                            <h3>Founder</h3>
+                            <span class="exp-company">@ Asalkar Digital</span>
+                            <ul>
+                                <li>Founded agency to help <strong>local businesses go online</strong></li>
+                                <li>Developed websites for stores and restaurants</li>
+                                <li>Providing <strong>Google Business setup</strong> and digital branding</li>
+                                <li>Vision to digitize <strong>thousands of local businesses</strong></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="container section">
-            <h2 class="section-title reveal">
-                <span class="section-number">05.</span>
-                <span class="hover-underline">Let's Build Something Together</span>
-                <span class="section-line"></span>
-            </h2>
-            <div class="contact-content reveal">
-                <p class="contact-text">I'm excited to bring my passion and skills to a new team. If you have an opportunity or just want to connect, my inbox is always open!</p>
-                <a href="mailto:asalkarsumit@gmail.com" class="btn btn-primary email-btn">
-                    <i class="fas fa-paper-plane"></i> asalkarsumit@gmail.com
-                </a>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/sumit-asalkar-1759a5277/" target="_blank" aria-label="LinkedIn" class="social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="https://github.com/ItsMeSMT7" target="_blank" aria-label="GitHub" class="social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.instagram.com/_sumit_asalkar_7/" target="_blank" aria-label="Instagram" class="social-icon">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://leetcode.com/" target="_blank" aria-label="LeetCode" class="social-icon">
-                        <i class="fas fa-code"></i>
-                    </a>
+        <!-- ASALKAR DIGITAL -->
+        <section id="asalkar-digital" class="section">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">05.</span> Asalkar Digital <span class="sec-line"></span></h2>
+                <div class="ad-hero reveal-up">
+                    <div class="ad-hero-glow"></div>
+                    <div class="ad-badge-wrap"><span class="ad-badge"><i class="fas fa-rocket"></i> Our Initiative</span></div>
+                    <h3>Empowering Local Businesses<br>with Digital Technology</h3>
+                    <p><strong>Asalkar Digital</strong> helps local businesses go online with modern websites, platforms, and apps.</p>
+                </div>
+                <div class="mv-grid reveal-up">
+                    <div class="mv-card" data-tilt><div class="mv-icon"><i class="fas fa-bullseye"></i></div><h4>Mission</h4><p>Empowering small businesses with digital technology to compete in the modern marketplace.</p></div>
+                    <div class="mv-card" data-tilt><div class="mv-icon"><i class="fas fa-eye"></i></div><h4>Vision</h4><p>Helping thousands of local businesses establish their online presence and grow digitally.</p></div>
+                </div>
+                <h3 class="services-heading reveal-up">Our Services</h3>
+                <div class="services-grid">
+                    <div class="svc-card reveal-up" data-tilt><div class="svc-icon"><i class="fas fa-laptop-code"></i></div><h4>Business Websites</h4><p>Professional, responsive websites.</p></div>
+                    <div class="svc-card reveal-up" data-tilt><div class="svc-icon"><i class="fas fa-shopping-bag"></i></div><h4>E-commerce</h4><p>Online stores with payments.</p></div>
+                    <div class="svc-card reveal-up" data-tilt><div class="svc-icon"><i class="fab fa-google"></i></div><h4>Google Business</h4><p>Maps and Search visibility.</p></div>
+                    <div class="svc-card reveal-up" data-tilt><div class="svc-icon"><i class="fas fa-mobile-alt"></i></div><h4>Mobile Apps</h4><p>Android and iOS apps.</p></div>
+                    <div class="svc-card reveal-up" data-tilt><div class="svc-icon"><i class="fas fa-paint-brush"></i></div><h4>Digital Branding</h4><p>Logo, social media identity.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DEMOS — Full Screen Showcase -->
+        <section id="demos" class="demos-section">
+            <div class="demos-header">
+                <h2 class="sec-title"><span class="sec-num">06.</span> Demo Showcase <span class="sec-line"></span></h2>
+                <p class="demos-sub">Example websites we build for small businesses</p>
+            </div>
+            <div class="demos-scroll-wrap" id="demosScrollWrap">
+                <div class="demo-full-slide" data-demo-bg="kirana">
+                    <div class="dfs-content">
+                        <div class="dfs-icon"><i class="fas fa-store"></i></div>
+                        <h3>Kirana Store Website</h3>
+                        <p>Online catalog, order management &amp; delivery tracking for local grocery stores.</p>
+                        <a href="#contact" class="btn-glow"><span class="btn-glow-inner">Request Demo <i class="fas fa-arrow-right"></i></span></a>
+                    </div>
+                    <div class="dfs-visual">
+                        <div class="dfs-mockup">
+                            <div class="dfs-screen">
+                                <div class="dfs-screen-top"><span></span><span></span><span></span></div>
+                                <div class="dfs-screen-body dfs-kirana">
+                                    <i class="fas fa-store"></i>
+                                    <span>Kirana Store</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-full-slide" data-demo-bg="restaurant">
+                    <div class="dfs-content">
+                        <div class="dfs-icon"><i class="fas fa-utensils"></i></div>
+                        <h3>Restaurant Website</h3>
+                        <p>Menu showcase, table booking, online ordering &amp; reviews for restaurants.</p>
+                        <a href="#contact" class="btn-glow"><span class="btn-glow-inner">Request Demo <i class="fas fa-arrow-right"></i></span></a>
+                    </div>
+                    <div class="dfs-visual">
+                        <div class="dfs-mockup">
+                            <div class="dfs-screen">
+                                <div class="dfs-screen-top"><span></span><span></span><span></span></div>
+                                <div class="dfs-screen-body dfs-restaurant">
+                                    <i class="fas fa-utensils"></i>
+                                    <span>Restaurant</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-full-slide" data-demo-bg="salon">
+                    <div class="dfs-content">
+                        <div class="dfs-icon"><i class="fas fa-cut"></i></div>
+                        <h3>Salon Website</h3>
+                        <p>Service catalog, appointment booking &amp; gallery showcase for salons.</p>
+                        <a href="#contact" class="btn-glow"><span class="btn-glow-inner">Request Demo <i class="fas fa-arrow-right"></i></span></a>
+                    </div>
+                    <div class="dfs-visual">
+                        <div class="dfs-mockup">
+                            <div class="dfs-screen">
+                                <div class="dfs-screen-top"><span></span><span></span><span></span></div>
+                                <div class="dfs-screen-body dfs-salon">
+                                    <i class="fas fa-cut"></i>
+                                    <span>Salon</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="demo-full-slide" data-demo-bg="coaching">
+                    <div class="dfs-content">
+                        <div class="dfs-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Coaching Institute</h3>
+                        <p>Course listings, student portal, fee management &amp; results for institutes.</p>
+                        <a href="#contact" class="btn-glow"><span class="btn-glow-inner">Request Demo <i class="fas fa-arrow-right"></i></span></a>
+                    </div>
+                    <div class="dfs-visual">
+                        <div class="dfs-mockup">
+                            <div class="dfs-screen">
+                                <div class="dfs-screen-top"><span></span><span></span><span></span></div>
+                                <div class="dfs-screen-body dfs-coaching">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    <span>Coaching</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2 class="sec-title reveal-up"><span class="sec-num">07.</span> Let's Connect <span class="sec-line"></span></h2>
+                <div class="contact-grid">
+                    <div class="contact-info reveal-up">
+                        <!-- Agent AI Image -->
+                        <div class="contact-agent-wrap">
+                            <div class="ca-glow"></div>
+                            <img src="agentai.png" alt="AI Agent" class="contact-agent-img">
+                        </div>
+                        <p class="contact-desc">Whether you have a job opportunity, project idea, or want to take your business online — my inbox is always open!</p>
+                        <div class="ci-items">
+                            <div class="ci-item"><div class="ci-icon"><i class="fas fa-user"></i></div><div><span class="ci-label">Name</span><span class="ci-value">Sumit Asalkar</span></div></div>
+                            <div class="ci-item"><div class="ci-icon"><i class="fas fa-envelope"></i></div><div><span class="ci-label">Email</span><a href="mailto:asalkarsumit@gmail.com" class="ci-value ci-link">asalkarsumit@gmail.com</a></div></div>
+                            <div class="ci-item"><div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div><div><span class="ci-label">Location</span><span class="ci-value">India</span></div></div>
+                        </div>
+                        <div class="ci-socials">
+                            <a href="https://www.linkedin.com/in/sumit-asalkar-1759a5277/" target="_blank" class="ci-soc-btn"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                            <a href="https://github.com/ItsMeSMT7" target="_blank" class="ci-soc-btn"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="https://wa.me/9766761763" target="_blank" class="ci-soc-btn ci-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                        </div>
+                    </div>
+                    <form class="contact-form reveal-up" id="contactForm">
+                        <div class="form-grp"><label for="cf-name">Your Name</label><input type="text" id="cf-name" placeholder="John Doe" required></div>
+                        <div class="form-grp"><label for="cf-email">Your Email</label><input type="email" id="cf-email" placeholder="john@example.com" required></div>
+                        <div class="form-grp"><label for="cf-subject">Subject</label><input type="text" id="cf-subject" placeholder="Project Inquiry"></div>
+                        <div class="form-grp"><label for="cf-msg">Message</label><textarea id="cf-msg" rows="5" placeholder="Tell me about your project..." required></textarea></div>
+                        <button type="submit" class="btn-glow btn-full"><span class="btn-glow-inner"><i class="fas fa-paper-plane"></i> Send Message</span></button>
+                        <div class="form-ok" id="formOk"><i class="fas fa-check-circle"></i> Message sent! I'll reply soon.</div>
+                    </form>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <p>Designed &amp; Built by <span class="highlight">Sumit S. Asalkar</span></p>
-            <p class="footer-sub">&copy; 2025 All Rights Reserved.</p>
+        <div class="container footer-wrap">
+            <div class="f-brand"><a href="#" class="logo f-logo"><span class="logo-b">{</span><span class="logo-t">SA</span><span class="logo-b">}</span></a><p>Building digital solutions that matter.</p></div>
+            <div class="f-links"><a href="#about">About</a><a href="#work">Work</a><a href="#asalkar-digital">Digital</a><a href="#contact">Contact</a></div>
+            <div class="f-bottom"><p>Designed &amp; Built by <strong>Sumit S. Asalkar</strong></p><p>&copy; 2025 All Rights Reserved.</p></div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <i class="fas fa-chevron-up"></i>
-    </button>
+    <a href="https://wa.me/9766761763" target="_blank" class="wa-float"><i class="fab fa-whatsapp"></i></a>
+    <button class="btt" id="btt"><i class="fas fa-chevron-up"></i></button>
 
     <script src="script.js"></script>
 </body>
