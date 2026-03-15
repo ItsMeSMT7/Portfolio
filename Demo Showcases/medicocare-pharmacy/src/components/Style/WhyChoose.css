@@ -1,0 +1,83 @@
+.why-section {
+  background: var(--gradient-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-xl);
+  padding: 28px 24px;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card-number {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.04);
+  line-height: 1;
+}
+
+.why-card-icon {
+  width: 50px;
+  height: 50px;
+  background: var(--primary-glow-strong);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-light);
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.why-card-title {
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.why-card-desc {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.why-bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.glow-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--primary);
+  opacity: 0.08;
+  top: -100px;
+  right: -100px;
+}
+
+.glow-2 {
+  width: 300px;
+  height: 300px;
+  background: var(--secondary);
+  opacity: 0.06;
+  bottom: -80px;
+  left: -80px;
+}
+
+@media (max-width: 991px) {
+  .why-content { margin-bottom: 40px; text-align: center; }
+}

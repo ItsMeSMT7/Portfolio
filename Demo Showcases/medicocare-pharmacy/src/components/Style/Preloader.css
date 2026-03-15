@@ -1,0 +1,74 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-hero);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: var(--z-preloader);
+  overflow: hidden;
+}
+
+.preloader-content {
+  text-align: center;
+  z-index: 2;
+  position: relative;
+}
+
+.preloader-icon {
+  font-size: 3.5rem;
+  color: var(--primary);
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 20px rgba(14, 165, 164, 0.5));
+}
+
+.preloader-brand {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 30px;
+  letter-spacing: -1px;
+}
+
+.preloader-brand span {
+  color: var(--primary);
+}
+
+.preloader-bar-container {
+  width: 200px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  margin: 0 auto 16px;
+  overflow: hidden;
+}
+
+.preloader-bar {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(14, 165, 164, 0.5);
+}
+
+.preloader-text {
+  color: var(--text-light);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.preloader-particles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--primary);
+}
