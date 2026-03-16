@@ -41,9 +41,9 @@ const Hero = () => {
           animate="visible"
         >
           <motion.div className="hero-welcome" variants={fadeInUp}>
-            <span className="welcome-line" style={{ marginTop: '50px' }}></span>
-            <span className="welcome-text" style={{ marginTop: '50px' }}>WELCOME TO</span>
-            <span className="welcome-line" style={{ marginTop: '50px' }}></span>
+            <span className="welcome-line"></span>
+            <span className="welcome-text">WELCOME TO</span>
+            <span className="welcome-line"></span>
           </motion.div>
 
           <div className="hero-headline">
@@ -68,7 +68,7 @@ const Hero = () => {
               {headlineWords2.map((word, index) => (
                 <motion.span
                   key={index}
-                  className="headline-word headline-italic"
+                  className="headline-word headline-accent"
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
@@ -102,7 +102,6 @@ const Hero = () => {
 
           <motion.div
             className="hero-buttons"
-            style={{ marginBottom: '80px', position: 'relative', zIndex: 10 }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6 }}
@@ -110,7 +109,7 @@ const Hero = () => {
             <motion.a
               href="#menu"
               className="btn-gold"
-              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(245,158,11,0.4)' }}
+              whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(6,182,212,0.4)' }}
               whileTap={{ scale: 0.95 }}
               onClick={(e) => {
                 e.preventDefault();
@@ -141,7 +140,7 @@ const Hero = () => {
           transition={{ delay: 2.2, duration: 0.5 }}
           onClick={() => handleNavClick('special-dishes')}
         >
-          {/* <span className="scroll-text">Scroll Down</span> */}
+          <span className="scroll-text">Scroll Down</span>
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}

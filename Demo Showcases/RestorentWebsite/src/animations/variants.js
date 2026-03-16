@@ -83,12 +83,12 @@ export const cardHover = {
   rest: {
     y: 0,
     boxShadow: '0 25px 50px rgba(0,0,0,0.4)',
-    borderColor: 'rgba(245, 158, 11, 0.1)',
+    borderColor: 'rgba(6, 182, 212, 0.1)',
   },
   hover: {
     y: -8,
-    boxShadow: '0 35px 60px rgba(185,28,28,0.15), 0 0 30px rgba(245,158,11,0.1)',
-    borderColor: 'rgba(245, 158, 11, 0.3)',
+    boxShadow: '0 35px 60px rgba(8,145,178,0.15), 0 0 30px rgba(6,182,212,0.1)',
+    borderColor: 'rgba(6, 182, 212, 0.3)',
     transition: { duration: 0.4, ease: 'easeOut' },
   },
 };

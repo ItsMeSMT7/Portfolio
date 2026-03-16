@@ -10,7 +10,7 @@
   left: 0;
   width: 100%;
   height: 1px;
-  background: rgba(245, 158, 11, 0.1);
+  background: rgba(6, 182, 212, 0.1);
   display: flex;
   justify-content: center;
 }
@@ -18,7 +18,7 @@
 .footer-border-glow {
   width: 200px;
   height: 2px;
-  background: var(--gradient-gold);
+  background: var(--gradient-cool);
   margin-top: -1px;
 }
 
@@ -160,7 +160,7 @@
   display: flex;
   border-radius: 50px;
   overflow: hidden;
-  border: 1px solid rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(6, 182, 212, 0.2);
 }
 
 .newsletter-input {
@@ -183,7 +183,7 @@
 }
 
 .newsletter-btn {
-  background: var(--gradient-gold);
+  background: var(--gradient-cool);
   color: var(--color-bg-darker);
   font-family: var(--font-body);
   font-size: 0.8rem;
@@ -211,7 +211,7 @@
 .footer-bottom {
   margin-top: 60px;
   padding-top: 24px;
-  border-top: 1px solid rgba(245, 158, 11, 0.08);
+  border-top: 1px solid rgba(6, 182, 212, 0.08);
 }
 
 .footer-bottom-inner {
@@ -239,8 +239,18 @@
   gap: 4px;
 }
 
+.footer-credit .asalkar-link{
+  color:#0EA5A4;
+  font-weight:700;
+  text-decoration:none;
+}
+
+.footer-credit .asalkar-link:hover{
+  color:#14b8a6;
+}
+
 .heart-icon {
-  color: var(--color-primary);
+  color: var(--color-secondary);
   font-size: 0.7rem;
 }
 

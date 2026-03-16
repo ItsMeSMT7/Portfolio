@@ -156,11 +156,19 @@ const Footer = () => {
         <div className="footer-bottom">
           <div className="footer-bottom-inner">
             <p className="footer-copyright">
-              © 2024 SavoryBite Restaurant. All Rights Reserved.
+              © {new Date().getFullYear()} SavoryBite. All rights reserved.
             </p>
-            <p className="footer-credit">
-              Designed with <FaHeart className="heart-icon" /> by SavoryBite Creative
-            </p>
+            <div className="footer-credit">
+              Made with <FaHeart className="heart-icon" /> by{' '}
+              <a 
+                href="https://sumitasalkar.vercel.app/" 
+                target="_blank" 
+                rel="noreferrer"
+                className="asalkar-link"
+              >
+                Asalkar Digital
+              </a>
+            </div>
           </div>
         </div>
       </div>

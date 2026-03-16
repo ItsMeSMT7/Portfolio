@@ -10,10 +10,10 @@
 }
 
 .navbar-scrolled {
-  background: rgba(15, 23, 42, 0.85);
+  background: rgba(10, 22, 40, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(245, 158, 11, 0.1);
+  border-bottom: 1px solid rgba(6, 182, 212, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -32,6 +32,10 @@
   align-items: center;
   gap: 6px;
   text-decoration: none;
+}
+
+.brand-teal {
+  color: var(--color-secondary);
 }
 
 .brand-gold {
@@ -82,7 +86,7 @@
   transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: var(--gradient-gold);
+  background: var(--gradient-cool);
   transition: width 0.3s ease;
 }
 
@@ -108,7 +112,7 @@
 }
 
 .navbar-cta:hover {
-  background: var(--gradient-gold);
+  background: var(--gradient-cool);
   color: var(--color-bg-darker);
   border-color: transparent;
 }
@@ -155,7 +159,7 @@
   right: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(2, 6, 23, 0.95);
+  background: rgba(5, 13, 24, 0.95);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   display: flex;

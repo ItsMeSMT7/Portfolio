@@ -34,6 +34,7 @@ const Navbar = () => {
 
   const handleNavClick = (id) => {
     setMenuOpen(false);
+    document.body.style.overflow = 'auto';
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -55,7 +56,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-inner">
           <a href="#home" className="navbar-brand" onClick={() => handleNavClick('home')}>
-            <span className="brand-gold">Savory</span>
+            <span className="brand-teal">Savory</span>
             <FaUtensils className="brand-icon" />
             <span className="brand-white">Bite</span>
           </a>
@@ -87,7 +88,7 @@ const Navbar = () => {
           <motion.a
             href="#reservation"
             className="navbar-cta"
-            whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(245,158,11,0.4)' }}
+            whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(6,182,212,0.4)' }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => {
               e.preventDefault();
@@ -130,7 +131,6 @@ const Navbar = () => {
                   onClick={(e) => {
                     e.preventDefault();
                     handleNavClick(link.id);
-                    document.body.style.overflow = 'auto';
                   }}
                 >
                   {link.label}
@@ -145,7 +145,6 @@ const Navbar = () => {
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick('reservation');
-                  document.body.style.overflow = 'auto';
                 }}
               >
                 Book a Table
