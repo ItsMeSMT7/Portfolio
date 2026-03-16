@@ -1358,6 +1358,7 @@ header.scrolled{border-color:var(--border-h);box-shadow:var(--shadow),var(--shad
 [data-demo-bg="restaurant"]::before{background:linear-gradient(135deg,#F59E0B,#D97706)}
 [data-demo-bg="salon"]::before{background:linear-gradient(135deg,#EC4899,#DB2777)}
 [data-demo-bg="coaching"]::before{background:linear-gradient(135deg,#64ffda,#a78bfa)}
+[data-demo-bg="medical"]::before{background:linear-gradient(135deg,#3B82F6,#1D4ED8)}
 
 .dfs-content{position:relative;z-index:1;max-width:480px}
 .dfs-icon{width:60px;height:60px;border-radius:var(--radius);background:var(--accent-glow);display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--accent);margin-bottom:20px}
@@ -1378,6 +1379,7 @@ header.scrolled{border-color:var(--border-h);box-shadow:var(--shadow),var(--shad
 .dfs-restaurant{background:linear-gradient(135deg,#F59E0B,#D97706)}
 .dfs-salon{background:linear-gradient(135deg,#EC4899,#DB2777)}
 .dfs-coaching{background:linear-gradient(135deg,#64ffda,#a78bfa)}
+.dfs-medical{background:linear-gradient(135deg,#3B82F6,#1D4ED8)}
 
 /* CONTACT */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
